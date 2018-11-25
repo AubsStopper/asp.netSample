@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "DataTable";
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem() { Text = "Java", Value = "Java" });
+    list.Add(new SelectListItem() { Text = "C++", Value = "c++" });
+    list.Add(new SelectListItem() { Text = "HTML", Value = "html" });
+    list.Add(new SelectListItem() { Text = "CSS", Value = "css" });
+}
+
+
+<h2>Form Data</h2>
+
+@using (Html.BeginForm("DataTable", "Home", FormMethod.Post))
+{
+    <div>
+        UserName: <input type="text" name="usrname" id="usrid" value="" />
+    </div>
+
+    <div>
+        Password: <input type="text" name="password" id="psswrd" value="" />
+    </div>
+
+    <div>
+       Technology @Html.DropDownList("Technology", list, "select")
+    </div>
+
+}
